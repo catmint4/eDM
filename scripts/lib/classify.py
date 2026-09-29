@@ -59,11 +59,24 @@ def extract_building_code(base_url: str) -> str:
     return m.group(1) if m else ""
 
 
+# 主題報每期的專屬活動頁網址，例如 /jan2026、/apr2026——月份縮寫＋四碼年份，
+# 每期一個、只在該期的主題報信件裡出現一次，是那期的主打連結，不是對照表管理的單篇文章。
+THEME_LANDING_RE = re.compile(r"^/[a-z]{3}20\d{2}$")
+
+# 好友報固定會附的「文章總覽／品牌形象」結構性連結，每一期好友報都有、不是對照表管理的
+# 單篇文章。/life-proposal 與 /life_proposal 是同一頁的兩種網址拼法（連字號 vs 底線，
+# 平台匯出時沒有統一），/about/brand_gallery 是品牌形象頁。跟 THEME_LANDING_RE 不同的是
+# 這不是「每期唯一一條」，而是好友報固定夾帶的 2 條導覽連結，所以歸成獨立分類，不當未歸類處理。
+FRIEND_HUB_PATHS = {"/life-proposal", "/life_proposal", "/about/brand_gallery"}
+
+
 def classify(base_url: str, url_path: str, ref_paths: set) -> str:
     """
     決定 category，規則跟 xlsx 的 IF 公式一致，由上而下判斷：
     /buildings/ -> 建案；/case/search -> 建案搜尋；facebook.com -> 外部-FB；
     maac.io -> 外部-短網址；unsubscribe -> 退訂；
+    /xxx2026 這種月份活動頁 -> 主題報活動頁；
+    /life-proposal 等好友報固定導覽頁 -> 好友報導覽頁；
     有 url_path 且出現在對照表 -> 生活提案文章；
     有 url_path 但對照表沒有 -> 未歸類(對照表無此網址)；
     其餘（外部網域、無法解析）-> 其他
@@ -79,6 +92,10 @@ def classify(base_url: str, url_path: str, ref_paths: set) -> str:
         return "外部-短網址"
     if "unsubscribe" in b:
         return "退訂"
+    if url_path and THEME_LANDING_RE.match(url_path):
+        return "主題報活動頁"
+    if url_path in FRIEND_HUB_PATHS:
+        return "好友報導覽頁"
     if url_path:
         return "生活提案文章" if url_path in ref_paths else "未歸類(對照表無此網址)"
     return "其他"
