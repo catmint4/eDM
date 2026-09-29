@@ -1,0 +1,724 @@
+{
+  "generated_from_periods": [
+    "2026-01-09",
+    "2026-01-23",
+    "2026-02-06",
+    "2026-02-20",
+    "2026-03-06",
+    "2026-03-20",
+    "2026-04-03",
+    "2026-04-17",
+    "2026-05-08",
+    "2026-05-22",
+    "2026-06-05",
+    "2026-06-19",
+    "2026-07-03",
+    "2026-07-17",
+    "2026-08-07",
+    "2026-08-21",
+    "2026-09-04",
+    "2026-09-18"
+  ],
+  "by_period": [
+    {
+      "date": "2026-01-09",
+      "report_type": "主題報",
+      "seq": "01b",
+      "email_name": "20260109-01b主題報-揭密「高薪族群」選房 3 準則.揭密「高薪族群」選房 3 準則",
+      "sent": 199630,
+      "delivered": 191810,
+      "hard_bounced": 508,
+      "soft_bounced": 7312,
+      "opened": 24334,
+      "clicked_email": 452,
+      "unsubscribed": 73,
+      "first_activity": "Jan 6, 2026 1:33 PM",
+      "last_activity": "Sep 29, 2026 10:06 AM",
+      "pct_delivered": 0.960828,
+      "pct_opened": 0.126865,
+      "pct_clicked": 0.002356,
+      "click_to_open_ratio": 0.018575,
+      "pct_unsubscribed": 0.000381
+    },
+    {
+      "date": "2026-01-23",
+      "report_type": "好友報",
+      "seq": "01a",
+      "email_name": "20260123-01a-銀行不會主動告訴你的秘密.20260123-01a-買房必看！銀行不說的抵押權與順位真相",
+      "sent": 199282,
+      "delivered": 191670,
+      "hard_bounced": 385,
+      "soft_bounced": 7227,
+      "opened": 17391,
+      "clicked_email": 173,
+      "unsubscribed": 47,
+      "first_activity": "Jan 20, 2026 1:02 PM",
+      "last_activity": "Sep 19, 2026 9:41 PM",
+      "pct_delivered": 0.961803,
+      "pct_opened": 0.090734,
+      "pct_clicked": 0.000903,
+      "click_to_open_ratio": 0.009948,
+      "pct_unsubscribed": 0.000245
+    },
+    {
+      "date": "2026-02-06",
+      "report_type": "主題報",
+      "seq": "01b",
+      "email_name": "20260206-01b主題報-解密「百貨帶動房價」的殘酷現實：入場券還有幾張？.入場券還有幾張？",
+      "sent": 199149,
+      "delivered": 191313,
+      "hard_bounced": 432,
+      "soft_bounced": 7404,
+      "opened": 22747,
+      "clicked_email": 185,
+      "unsubscribed": 59,
+      "first_activity": "Feb 4, 2026 2:17 PM",
+      "last_activity": "Sep 29, 2026 10:23 PM",
+      "pct_delivered": 0.960653,
+      "pct_opened": 0.118899,
+      "pct_clicked": 0.000967,
+      "click_to_open_ratio": 0.008133,
+      "pct_unsubscribed": 0.000308
+    },
+    {
+      "date": "2026-02-20",
+      "report_type": "好友報",
+      "seq": "01a",
+      "email_name": "20260220-01a-2026年預售市場一針見血的銷售與購買策略.20260220-01a-2026年預售市場一針見血的銷售與購買策略",
+      "sent": 198955,
+      "delivered": 191391,
+      "hard_bounced": 405,
+      "soft_bounced": 7159,
+      "opened": 23674,
+      "clicked_email": 289,
+      "unsubscribed": 66,
+      "first_activity": "Feb 12, 2026 1:14 PM",
+      "last_activity": "Sep 19, 2026 9:12 AM",
+      "pct_delivered": 0.961981,
+      "pct_opened": 0.123694,
+      "pct_clicked": 0.00151,
+      "click_to_open_ratio": 0.012207,
+      "pct_unsubscribed": 0.000345
+    },
+    {
+      "date": "2026-03-06",
+      "report_type": "主題報",
+      "seq": "01b",
+      "email_name": "20260306-01b主題報-同樣預算，為什麼聰明人都選這區住.同樣預算，為什麼聰明人都選這區住",
+      "sent": 198777,
+      "delivered": 192646,
+      "hard_bounced": 377,
+      "soft_bounced": 5753,
+      "opened": 23492,
+      "clicked_email": 227,
+      "unsubscribed": 74,
+      "first_activity": "Mar 5, 2026 12:46 PM",
+      "last_activity": "Sep 29, 2026 10:27 PM",
+      "pct_delivered": 0.969156,
+      "pct_opened": 0.121944,
+      "pct_clicked": 0.001178,
+      "click_to_open_ratio": 0.009663,
+      "pct_unsubscribed": 0.000384
+    },
+    {
+      "date": "2026-03-20",
+      "report_type": "好友報",
+      "seq": "01a",
+      "email_name": "20260320-01a-2026 台灣經濟展望：AI 產業動能、台股趨勢與台幣匯率走勢分析.2026 台灣經濟展望",
+      "sent": 198631,
+      "delivered": 192488,
+      "hard_bounced": 414,
+      "soft_bounced": 5728,
+      "opened": 23570,
+      "clicked_email": 160,
+      "unsubscribed": 66,
+      "first_activity": "Mar 20, 2026 11:23 AM",
+      "last_activity": "Sep 29, 2026 10:25 PM",
+      "pct_delivered": 0.969073,
+      "pct_opened": 0.122449,
+      "pct_clicked": 0.000831,
+      "click_to_open_ratio": 0.006788,
+      "pct_unsubscribed": 0.000343
+    },
+    {
+      "date": "2026-04-03",
+      "report_type": "主題報",
+      "seq": "01b",
+      "email_name": "20260403-01b主題報-買房到賣房的稅務全清單.買房到賣房的稅務全清單：別讓辛苦錢在「這 6 關」流失！",
+      "sent": 198442,
+      "delivered": 192155,
+      "hard_bounced": 377,
+      "soft_bounced": 5905,
+      "opened": 18698,
+      "clicked_email": 271,
+      "unsubscribed": 134,
+      "first_activity": "Apr 1, 2026 11:15 AM",
+      "last_activity": "Sep 29, 2026 4:00 PM",
+      "pct_delivered": 0.968318,
+      "pct_opened": 0.097307,
+      "pct_clicked": 0.00141,
+      "click_to_open_ratio": 0.014494,
+      "pct_unsubscribed": 0.000697
+    },
+    {
+      "date": "2026-04-17",
+      "report_type": "好友報",
+      "seq": "01a",
+      "email_name": "20260417-01a-明明是贈與卻變遺產？小心這條法規讓你的節稅計畫大翻車.2026遺贈稅修法",
+      "sent": 198241,
+      "delivered": 191927,
+      "hard_bounced": 363,
+      "soft_bounced": 5945,
+      "opened": 18530,
+      "clicked_email": 224,
+      "unsubscribed": 99,
+      "first_activity": "Apr 17, 2026 3:37 PM",
+      "last_activity": "Sep 28, 2026 9:43 AM",
+      "pct_delivered": 0.96815,
+      "pct_opened": 0.096547,
+      "pct_clicked": 0.001167,
+      "click_to_open_ratio": 0.012089,
+      "pct_unsubscribed": 0.000516
+    },
+    {
+      "date": "2026-05-08",
+      "report_type": "主題報",
+      "seq": "01b",
+      "email_name": "20260508-01b主題報-台中台南高雄房市戰報.2026台中台南高雄房市戰報",
+      "sent": 198079,
+      "delivered": 191673,
+      "hard_bounced": 511,
+      "soft_bounced": 5895,
+      "opened": 18730,
+      "clicked_email": 268,
+      "unsubscribed": 77,
+      "first_activity": "May 4, 2026 10:35 AM",
+      "last_activity": "Sep 29, 2026 11:55 PM",
+      "pct_delivered": 0.967659,
+      "pct_opened": 0.097719,
+      "pct_clicked": 0.001398,
+      "click_to_open_ratio": 0.014309,
+      "pct_unsubscribed": 0.000402
+    },
+    {
+      "date": "2026-05-22",
+      "report_type": "好友報",
+      "seq": "01a",
+      "email_name": "20260522-01a-2026房市觀測：住宅盤整量縮，Nvidia星艦效應點燃商辦.2026房市觀測：住宅盤整量縮，Nvidia星艦效應點燃商辦",
+      "sent": 197874,
+      "delivered": 191440,
+      "hard_bounced": 490,
+      "soft_bounced": 5944,
+      "opened": 18406,
+      "clicked_email": 172,
+      "unsubscribed": 77,
+      "first_activity": "May 20, 2026 2:14 PM",
+      "last_activity": "Sep 29, 2026 10:15 PM",
+      "pct_delivered": 0.967484,
+      "pct_opened": 0.096145,
+      "pct_clicked": 0.000898,
+      "click_to_open_ratio": 0.009345,
+      "pct_unsubscribed": 0.000402
+    },
+    {
+      "date": "2026-06-05",
+      "report_type": "主題報",
+      "seq": "01b",
+      "email_name": "20260605-01b主題報-預售屋簽約避雷手冊.預售屋簽約避雷手冊：6 個沒看清會賠錢的合約地雷",
+      "sent": 197560,
+      "delivered": 191091,
+      "hard_bounced": 464,
+      "soft_bounced": 6005,
+      "opened": 24814,
+      "clicked_email": 318,
+      "unsubscribed": 72,
+      "first_activity": "Jun 5, 2026 4:35 PM",
+      "last_activity": "Sep 29, 2026 10:38 PM",
+      "pct_delivered": 0.967256,
+      "pct_opened": 0.129854,
+      "pct_clicked": 0.001664,
+      "click_to_open_ratio": 0.012815,
+      "pct_unsubscribed": 0.000377
+    },
+    {
+      "date": "2026-06-19",
+      "report_type": "好友報",
+      "seq": "01a",
+      "email_name": "20260619-01a-夫妻買房登記誰名下？持有風險解析.夫妻合資買房登記誰名下？別讓你的出資，在法律上變「送他的禮物」！",
+      "sent": 197384,
+      "delivered": 190742,
+      "hard_bounced": 576,
+      "soft_bounced": 6066,
+      "opened": 11958,
+      "clicked_email": 277,
+      "unsubscribed": 60,
+      "first_activity": "Jun 11, 2026 5:02 PM",
+      "last_activity": "Sep 29, 2026 8:17 PM",
+      "pct_delivered": 0.96635,
+      "pct_opened": 0.062692,
+      "pct_clicked": 0.001452,
+      "click_to_open_ratio": 0.023164,
+      "pct_unsubscribed": 0.000315
+    },
+    {
+      "date": "2026-07-03",
+      "report_type": "主題報",
+      "seq": "01b",
+      "email_name": "20260703-01b主題報-如何把錢安全留給另一半？.如何把錢安全留給另一半？避開分家與巨額稅單的關鍵規劃！",
+      "sent": 197339,
+      "delivered": 190650,
+      "hard_bounced": 666,
+      "soft_bounced": 6023,
+      "opened": 24593,
+      "clicked_email": 216,
+      "unsubscribed": 97,
+      "first_activity": "Jul 3, 2026 4:30 PM",
+      "last_activity": "Sep 29, 2026 10:52 PM",
+      "pct_delivered": 0.966104,
+      "pct_opened": 0.128996,
+      "pct_clicked": 0.001133,
+      "click_to_open_ratio": 0.008783,
+      "pct_unsubscribed": 0.000509
+    },
+    {
+      "date": "2026-07-17",
+      "report_type": "好友報",
+      "seq": "01a",
+      "email_name": "20260717-01a-空屋率越高房價越跌？揭開台灣房市「愈空愈貴」的暗黑邏輯.空屋率越高房價越跌？",
+      "sent": 197220,
+      "delivered": 190438,
+      "hard_bounced": 723,
+      "soft_bounced": 6059,
+      "opened": 23952,
+      "clicked_email": 262,
+      "unsubscribed": 84,
+      "first_activity": "Jul 13, 2026 4:20 PM",
+      "last_activity": "Sep 29, 2026 11:00 PM",
+      "pct_delivered": 0.965612,
+      "pct_opened": 0.125773,
+      "pct_clicked": 0.001376,
+      "click_to_open_ratio": 0.010939,
+      "pct_unsubscribed": 0.000441
+    },
+    {
+      "date": "2026-08-07",
+      "report_type": "主題報",
+      "seq": "01b",
+      "email_name": "20260807-01b-交屋全攻略：從產權防護、驗屋清單到屋型挑選的安心入住指南.交屋全攻略",
+      "sent": 196671,
+      "delivered": 190258,
+      "hard_bounced": 392,
+      "soft_bounced": 6021,
+      "opened": 23969,
+      "clicked_email": 185,
+      "unsubscribed": 71,
+      "first_activity": "Aug 3, 2026 11:44 AM",
+      "last_activity": "Sep 30, 2026 1:15 AM",
+      "pct_delivered": 0.967392,
+      "pct_opened": 0.125982,
+      "pct_clicked": 0.000972,
+      "click_to_open_ratio": 0.007718,
+      "pct_unsubscribed": 0.000373
+    },
+    {
+      "date": "2026-08-21",
+      "report_type": "好友報",
+      "seq": "01b",
+      "email_name": "20260821-01b-股房雙循環輪動，AI資產配置的新契機.股房雙循環輪動，AI資產配置的新契機",
+      "sent": 196450,
+      "delivered": 190046,
+      "hard_bounced": 389,
+      "soft_bounced": 6015,
+      "opened": 23525,
+      "clicked_email": 168,
+      "unsubscribed": 70,
+      "first_activity": "Aug 17, 2026 11:30 AM",
+      "last_activity": "Sep 29, 2026 11:35 PM",
+      "pct_delivered": 0.967401,
+      "pct_opened": 0.123786,
+      "pct_clicked": 0.000884,
+      "click_to_open_ratio": 0.007141,
+      "pct_unsubscribed": 0.000368
+    },
+    {
+      "date": "2026-09-04",
+      "report_type": "主題報",
+      "seq": "01b",
+      "email_name": "20260904-01b-買房最容易忽略的 6 個交易地雷，你踩過幾個？.買房最容易忽略的 6 個交易地雷，你踩過幾個？",
+      "sent": 196275,
+      "delivered": 189678,
+      "hard_bounced": 389,
+      "soft_bounced": 6208,
+      "opened": 15632,
+      "clicked_email": 178,
+      "unsubscribed": 49,
+      "first_activity": "Aug 21, 2026 2:02 PM",
+      "last_activity": "Sep 22, 2026 6:47 PM",
+      "pct_delivered": 0.966389,
+      "pct_opened": 0.082413,
+      "pct_clicked": 0.000938,
+      "click_to_open_ratio": 0.011387,
+      "pct_unsubscribed": 0.000258
+    },
+    {
+      "date": "2026-09-18",
+      "report_type": "好友報",
+      "seq": "01b",
+      "email_name": "20260918-01b-鄰居製造噪音、菸味擾人怎麼辦？.鄰居製造噪音、菸味擾人怎麼辦？",
+      "sent": 196088,
+      "delivered": 189508,
+      "hard_bounced": 480,
+      "soft_bounced": 6100,
+      "opened": 15775,
+      "clicked_email": 189,
+      "unsubscribed": 37,
+      "first_activity": "Sep 18, 2026 4:00 PM",
+      "last_activity": "Sep 29, 2026 6:45 PM",
+      "pct_delivered": 0.966444,
+      "pct_opened": 0.083242,
+      "pct_clicked": 0.000997,
+      "click_to_open_ratio": 0.011981,
+      "pct_unsubscribed": 0.000195
+    }
+  ],
+  "category_totals": [
+    {
+      "category": "其他",
+      "clicks": 48,
+      "people": 28
+    },
+    {
+      "category": "外部-FB",
+      "clicks": 1079,
+      "people": 678
+    },
+    {
+      "category": "外部-短網址",
+      "clicks": 1504,
+      "people": 954
+    },
+    {
+      "category": "建案",
+      "clicks": 846,
+      "people": 639
+    },
+    {
+      "category": "建案搜尋",
+      "clicks": 214,
+      "people": 159
+    },
+    {
+      "category": "未歸類(對照表無此網址)",
+      "clicks": 3288,
+      "people": 2371
+    },
+    {
+      "category": "生活提案文章",
+      "clicks": 4078,
+      "people": 3120
+    },
+    {
+      "category": "退訂",
+      "clicks": 1473,
+      "people": 1048
+    }
+  ],
+  "top_articles": [
+    {
+      "url_path": "/life-proposal/expert_zhu_inheritance-tax-2026",
+      "article_title": "【2026遺贈稅修法】資產傳承不踩雷！別讓擬制遺產害你背稅單",
+      "大分類": "稅務與繼承",
+      "中分類": "遺產與贈與",
+      "clicks": 254,
+      "people": 191
+    },
+    {
+      "url_path": "/life-proposal/expert_law_y-rlee_joint-ownership",
+      "article_title": "夫妻買房登記誰名下？律師詳解「單獨所有」與「共同持有」法律風險 | 永然法律不動產專欄",
+      "大分類": "不動產交易",
+      "中分類": "產權",
+      "clicks": 227,
+      "people": 176
+    },
+    {
+      "url_path": "/life-proposal/expert_hoshichang_vacancy-rate",
+      "article_title": "空屋率越高房價越跌？揭開台灣房市「愈空愈貴」的暗黑邏輯｜何世昌觀點",
+      "大分類": "市場與政策",
+      "中分類": "房市趨勢",
+      "clicks": 189,
+      "people": 149
+    },
+    {
+      "url_path": "/life-proposal/expert_zhu_mortgage-lien-priority",
+      "article_title": "買房前必查：銀行不會主動告訴你的「抵押權與順位」 | 專家觀點地政篇",
+      "大分類": "不動產交易",
+      "中分類": "產權",
+      "clicks": 176,
+      "people": 126
+    },
+    {
+      "url_path": "/life-proposal/expert_zhu_inheritance-tax-2026-2",
+      "article_title": "【2026 遺產稅修法】夫妻剩餘財產請求權：最強節稅利器，讓稅金直接對半砍！",
+      "大分類": "稅務與繼承",
+      "中分類": "遺產與贈與",
+      "clicks": 173,
+      "people": 123
+    },
+    {
+      "url_path": "/life-proposal/expert_law_y-rlee_living-rights",
+      "article_title": "鄰居製造噪音、菸味擾人怎麼辦？「居住安寧權」法律訴訟與舉證攻略",
+      "大分類": "居住與維護",
+      "中分類": "社區管理",
+      "clicks": 165,
+      "people": 134
+    },
+    {
+      "url_path": "/life-proposal/expert_li_2026-housing-tips",
+      "article_title": "2026年預售市場一針見血的銷售與購買策略｜李同榮觀點",
+      "大分類": "市場與政策",
+      "中分類": "房市趨勢",
+      "clicks": 160,
+      "people": 127
+    },
+    {
+      "url_path": "/life-proposal/expert_peizhen_real-estate-2026",
+      "article_title": "2025房市回顧與2026盤整展望：政策與市場趨勢解析｜劉佩真觀點",
+      "大分類": "市場與政策",
+      "中分類": "房市趨勢",
+      "clicks": 160,
+      "people": 122
+    },
+    {
+      "url_path": "/life-proposal/expert_zhu_eht_20250625",
+      "article_title": "專家觀點地政篇：空屋稅的真相？房子閒置前你該考慮的事",
+      "大分類": "稅務與繼承",
+      "中分類": "稅務",
+      "clicks": 135,
+      "people": 100
+    },
+    {
+      "url_path": "/life-proposal/expert_zhu_tax-notice",
+      "article_title": "什麼是「預告登記」？延後交屋、節稅產權保障全攻略 | 專家觀點地政篇",
+      "大分類": "不動產交易",
+      "中分類": "產權",
+      "clicks": 125,
+      "people": 96
+    },
+    {
+      "url_path": "/life-proposal/expert_macromicro_economy-2026-critical",
+      "article_title": "2026 台灣經濟展望：AI 產業動能、台股趨勢與台幣匯率走勢分析 | 財經M平方觀點",
+      "大分類": "市場與政策",
+      "中分類": "國際市場",
+      "clicks": 112,
+      "people": 91
+    },
+    {
+      "url_path": "/life-proposal/expert_zhu_ownership-criteria",
+      "article_title": "自用住宅免稅400萬怎麼申請？「持有、設籍、實住」3點不能忽略 | 專家觀點地政篇",
+      "大分類": "稅務與繼承",
+      "中分類": "稅務",
+      "clicks": 104,
+      "people": 78
+    },
+    {
+      "url_path": "/life-proposal/expert_peizhen_2026-q1-market",
+      "article_title": "2026首季房市量縮價盤，Nvidia 星艦效應啟動商辦新局｜劉佩真觀點",
+      "大分類": "市場與政策",
+      "中分類": "房市趨勢",
+      "clicks": 101,
+      "people": 71
+    },
+    {
+      "url_path": "/life-proposal/seo_youth-home-loan",
+      "article_title": "新青安貸款全攻略：申請資格、利率比較與流程，買房族必看！",
+      "大分類": "不動產交易",
+      "中分類": "房貸",
+      "clicks": 98,
+      "people": 74
+    },
+    {
+      "url_path": "/life-proposal/expert_zhu_pre-sale-house-property-rights",
+      "article_title": "預售屋簽約必看！解析專有與約定專用，避開產權陷阱 | 專家觀點地政篇",
+      "大分類": "不動產交易",
+      "中分類": "產權",
+      "clicks": 97,
+      "people": 77
+    },
+    {
+      "url_path": "/life-proposal/gift_tax",
+      "article_title": "贈與稅與遺產稅免稅額提高，移轉房屋給子女應如何規劃?",
+      "大分類": "稅務與繼承",
+      "中分類": "稅務",
+      "clicks": 86,
+      "people": 68
+    },
+    {
+      "url_path": "/life-proposal/expert_hoshichang_south-potential",
+      "article_title": "2025年南台灣房市潛力區域專題報導 - 10大優質投資區域分析｜何世昌觀點",
+      "大分類": "市場與政策",
+      "中分類": "房市趨勢",
+      "clicks": 84,
+      "people": 68
+    },
+    {
+      "url_path": "/life-proposal/expert_hoshichang_central-potential",
+      "article_title": "何世昌觀點：2025年中台灣房市潛力區域專題報導 -10大優質投資區域分析",
+      "大分類": "市場與政策",
+      "中分類": "房市趨勢",
+      "clicks": 82,
+      "people": 66
+    },
+    {
+      "url_path": "/life-proposal/expert_zhu_video_buy-vs-gift",
+      "article_title": "[影音] 房產傳承案例解析：買賣與贈與的差別、實務操作與法律風險",
+      "大分類": "稅務與繼承",
+      "中分類": "節稅",
+      "clicks": 79,
+      "people": 62
+    },
+    {
+      "url_path": "/life-proposal/land_household_registration",
+      "article_title": "買房大小事：戶籍遷入如何辦理？",
+      "大分類": "不動產交易",
+      "中分類": "產權",
+      "clicks": 76,
+      "people": 59
+    },
+    {
+      "url_path": "/life-proposal/expert_law_y-rlee_property-division",
+      "article_title": "共同繼承來的房地產，要如何進行分割呢？ | 永然法律不動產專欄",
+      "大分類": "不動產交易",
+      "中分類": "產權",
+      "clicks": 74,
+      "people": 64
+    },
+    {
+      "url_path": "/life-proposal/fm3-asset",
+      "article_title": "大新板 AI 產業廊道成形｜地緣政治驅動企業佈局，解析廠辦配置甜蜜點",
+      "大分類": "區域環境",
+      "中分類": "區域發展",
+      "clicks": 74,
+      "people": 58
+    },
+    {
+      "url_path": "/life-proposal/house_and_land",
+      "article_title": "換屋族看過來，房地合一稅與土增稅要點筆記！",
+      "大分類": "稅務與繼承",
+      "中分類": "稅務",
+      "clicks": 74,
+      "people": 55
+    },
+    {
+      "url_path": "/life-proposal/expert_macromicro_stablecoin",
+      "article_title": "全球貨幣戰：穩定幣的發展與投資機會 | 財經M平方觀點",
+      "大分類": "市場與政策",
+      "中分類": "國際市場",
+      "clicks": 73,
+      "people": 61
+    },
+    {
+      "url_path": "/life-proposal/metalink-ai-hub",
+      "article_title": "輝達超微進駐遠雄自貿港，遠雄MetaLink廠辦受惠廊帶效應",
+      "大分類": "區域環境",
+      "中分類": "區域發展",
+      "clicks": 73,
+      "people": 53
+    },
+    {
+      "url_path": "/life-proposal/expert_li_property-new-era",
+      "article_title": "迎接房市大分化時代—建商經營策略篇｜李同榮觀點",
+      "大分類": "市場與政策",
+      "中分類": "房市趨勢",
+      "clicks": 73,
+      "people": 52
+    },
+    {
+      "url_path": "/life-proposal/expert_zhu_false-renovation-traps",
+      "article_title": "賣房想省稅？別踩房地合一稅虛報裝修陷阱 | 專家觀點地政篇",
+      "大分類": "稅務與繼承",
+      "中分類": "稅務",
+      "clicks": 71,
+      "people": 54
+    },
+    {
+      "url_path": "/life-proposal/area_fm3_ai-tech-park-banqiao",
+      "article_title": "AI浪潮點火，新板TPARK廠辦價值加速升溫",
+      "大分類": "區域環境",
+      "中分類": "區域發展",
+      "clicks": 70,
+      "people": 55
+    },
+    {
+      "url_path": "/life-proposal/expert_macromicro_ai-invest",
+      "article_title": "AI 產業下的投資機會：利潤轉移、能源競賽如何解讀 | 財經M平方觀點",
+      "大分類": "市場與政策",
+      "中分類": "國際市場",
+      "clicks": 68,
+      "people": 54
+    },
+    {
+      "url_path": "/life-proposal/expert_zhu_legal-reserve",
+      "article_title": "【頂客族必看】不生小孩，遺產竟要分給兄弟姊妹？",
+      "大分類": "稅務與繼承",
+      "中分類": "遺產與贈與",
+      "clicks": 64,
+      "people": 47
+    }
+  ],
+  "unmatched_paths": [
+    {
+      "url_path": "/jan2026",
+      "people": 396
+    },
+    {
+      "url_path": "/jun2026",
+      "people": 273
+    },
+    {
+      "url_path": "/life-proposal",
+      "people": 225
+    },
+    {
+      "url_path": "/apr2026",
+      "people": 220
+    },
+    {
+      "url_path": "/may2026",
+      "people": 219
+    },
+    {
+      "url_path": "/mar2026",
+      "people": 197
+    },
+    {
+      "url_path": "/jul2026",
+      "people": 179
+    },
+    {
+      "url_path": "/feb2026",
+      "people": 158
+    },
+    {
+      "url_path": "/aug2026",
+      "people": 151
+    },
+    {
+      "url_path": "/sep2026",
+      "people": 147
+    },
+    {
+      "url_path": "/about/brand_gallery",
+      "people": 138
+    },
+    {
+      "url_path": "/life_proposal",
+      "people": 68
+    }
+  ],
+  "click_list_health": {
+    "note": "分母是「曾經點擊過的人」，不是全體訂閱名單，只能反映點擊行為的活躍/沉睡狀況。",
+    "unique_clickers_ever": 2150,
+    "active_in_last_3_periods": 347,
+    "dormant": 1803
+  }
+}
