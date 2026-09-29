@@ -156,6 +156,57 @@ def build_summary(sends_df: pd.DataFrame, links_df: pd.DataFrame) -> dict:
     active_last_3 = sum(1 for periods in eid_periods.values() if periods & latest_periods)
     dormant = sum(1 for periods in eid_periods.values() if not (periods & latest_periods))
 
+    # 三群受眾分群：核心重疊 / 高意圖（原稱「準買家」，改名比較不會誤導成「已確定要買」）/ 高頻讀者
+    # 定義（使用者確認版本）：
+    #   核心重疊 = 參與 >= 3 檔  且  點過建案連結
+    #   高意圖   = 建案點擊佔本人總點擊次數 >= 50%
+    #   高頻讀者 = 參與 >= 3 檔  但  從未點過建案連結
+    eid_building_clicks = defaultdict(int)
+    eid_total_clicks = defaultdict(int)
+    for r in links_df[links_df["eid"] != ""].itertuples():
+        c = int(r.clicks or 0)
+        eid_total_clicks[r.eid] += c
+        if r.category == "建案":
+            eid_building_clicks[r.eid] += c
+
+    core_overlap, buyer, high_freq_no_bld = set(), set(), set()
+    for eid, periods in eid_periods.items():
+        n_periods = len(periods)
+        bld = eid_building_clicks.get(eid, 0)
+        tot = eid_total_clicks.get(eid, 0)
+        ratio = (bld / tot) if tot else 0
+        if n_periods >= 3 and bld > 0:
+            core_overlap.add(eid)
+        if tot > 0 and ratio >= 0.5:
+            buyer.add(eid)
+        if n_periods >= 3 and bld == 0:
+            high_freq_no_bld.add(eid)
+
+    def first_contact_dist(eid_set):
+        c = Counter(min(eid_periods[e]) for e in eid_set)
+        return {p: c.get(p, 0) for p in periods_sorted}
+
+    audience_segments = {
+        "note": "以 eid（收件人代碼）為主鍵，橫跨全部期別的點擊明細計算；只涵蓋曾經點擊過連結的人，不是全體訂閱名單。",
+        "groups": {
+            "核心重疊": {
+                "definition": "參與 >= 3 檔 且 點過建案連結",
+                "count": len(core_overlap),
+                "first_contact_by_period": first_contact_dist(core_overlap),
+            },
+            "高意圖": {
+                "definition": "建案點擊佔其總點擊 >= 50%",
+                "count": len(buyer),
+                "first_contact_by_period": first_contact_dist(buyer),
+            },
+            "高頻讀者": {
+                "definition": "參與 >= 3 檔 但從未點過建案連結",
+                "count": len(high_freq_no_bld),
+                "first_contact_by_period": first_contact_dist(high_freq_no_bld),
+            },
+        },
+    }
+
     return {
         "generated_from_periods": periods_sorted,
         "by_period": by_period,
@@ -168,6 +219,7 @@ def build_summary(sends_df: pd.DataFrame, links_df: pd.DataFrame) -> dict:
             "active_in_last_3_periods": active_last_3,
             "dormant": dormant,
         },
+        "audience_segments": audience_segments,
     }
 
 
