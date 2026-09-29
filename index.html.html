@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>電子報成效儀表板</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+<style>
+:root{
+  --canvas:#EEF1F5; --card:#FFFFFF; --chrome:#FFFFFF;
+  --ink:#1B2432; --ink2:#5B6B80; --ink3:#8A97A8;
+  --line:#DFE5EC; --line2:#EDF1F5;
+  --c1:#17527A; --c2:#0F8A78; --gold:#C9963C;
+  --rise:#D0342C; --fall:#0F8A78;
+  --mono:"IBM Plex Mono",ui-monospace,monospace;
+  --ui:"Noto Sans TC",system-ui,-apple-system,sans-serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:var(--canvas);color:var(--ink);font-family:var(--ui);font-size:13px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+
+.topbar{background:var(--c1);color:#fff;padding:16px 20px;display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px}
+.topbar h1{margin:0;font-size:17px;font-weight:700}
+.topbar .meta{font-size:11.5px;opacity:.75}
+
+.status{padding:8px 20px;font-size:11.5px;color:var(--ink2);background:#fff;border-bottom:1px solid var(--line)}
+.status.err{color:var(--rise)}
+
+.canvas{padding:16px;max-width:1280px;margin:0 auto}
+.grid{display:grid;gap:12px;grid-template-columns:repeat(12,1fr)}
+.c3,.c4,.c6,.c8,.c12{grid-column:span 12}
+@media(min-width:760px){.c3{grid-column:span 6}.c4{grid-column:span 6}.c6{grid-column:span 6}}
+@media(min-width:1080px){.c3{grid-column:span 3}.c4{grid-column:span 4}.c6{grid-column:span 6}.c8{grid-column:span 8}}
+
+.card{background:var(--card);border:1px solid var(--line);border-radius:4px;display:flex;flex-direction:column;min-width:0}
+.chead{padding:11px 14px 9px;border-bottom:1px solid var(--line2)}
+.chead h3{margin:0;font-size:13.5px;font-weight:700}
+.chead p{margin:3px 0 0;font-size:11.5px;color:var(--ink3)}
+.cbody{padding:14px;flex:1;min-width:0}
+
+.kpi .lbl{font-size:11.5px;color:var(--ink2);margin-bottom:6px}
+.kpi .val{font-family:var(--mono);font-size:26px;font-weight:600;line-height:1.1;color:var(--c1)}
+.kpi .sub{margin-top:6px;font-size:11px;color:var(--ink3)}
+
+table.t{width:100%;border-collapse:collapse;font-size:12px}
+table.t th{text-align:left;font-size:11px;color:var(--ink3);font-weight:600;padding:6px 8px;border-bottom:1px solid var(--line);white-space:nowrap}
+table.t td{padding:6px 8px;border-bottom:1px solid var(--line2);vertical-align:middle}
+table.t tbody tr:hover{background:#F7FAFC}
+table.t td.n{font-family:var(--mono);text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+table.t th.n{text-align:right}
+
+.pill{display:inline-block;font-size:10.5px;padding:1px 7px;border-radius:2px;background:#17527A15;color:var(--c1)}
+.note{font-size:11px;color:var(--ink3);padding:8px 14px 12px;border-top:1px dashed var(--line)}
+.note b{color:var(--gold)}
+canvas{max-width:100%}
+footer{padding:20px;text-align:center;font-size:11px;color:var(--ink3)}
+a{color:var(--c1)}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <h1>電子報成效儀表板</h1>
+  <div class="meta" id="topbarMeta">讀取中...</div>
+</div>
+<div class="status" id="statusLine">正在讀取 data/summary.json ...</div>
+
+<div class="canvas" id="app" style="display:none">
+  <div class="grid">
+    <div class="c3 card kpi"><div class="cbody">
+      <div class="lbl">累計寄送 (Sent)</div><div class="val" id="kpiSent">—</div>
+      <div class="sub" id="kpiPeriods">—</div>
+    </div></div>
+    <div class="c3 card kpi"><div class="cbody">
+      <div class="lbl">平均送達率</div><div class="val" id="kpiDelivered">—</div>
+    </div></div>
+    <div class="c3 card kpi"><div class="cbody">
+      <div class="lbl">平均開信率</div><div class="val" id="kpiOpened">—</div>
+    </div></div>
+    <div class="c3 card kpi"><div class="cbody">
+      <div class="lbl">平均點擊率</div><div class="val" id="kpiClicked">—</div>
+    </div></div>
+
+    <div class="c6 card">
+      <div class="chead"><h3>開信率 / 點擊率　逐期趨勢</h3><p>依期別排序，好友報／主題報分開畫線</p></div>
+      <div class="cbody"><canvas id="chartTrend" height="180"></canvas></div>
+    </div>
+    <div class="c6 card">
+      <div class="chead"><h3>好友報 vs 主題報</h3><p>18 期合計平均</p></div>
+      <div class="cbody">
+        <table class="t" id="compareTable"></table>
+      </div>
+    </div>
+
+    <div class="c6 card">
+      <div class="chead"><h3>連結分類成效</h3><p>依 Clicks 排序</p></div>
+      <div class="cbody"><canvas id="chartCategory" height="220"></canvas></div>
+      <div class="note">「未歸類」多為主題報每期專屬活動頁（如 /jan2026），非單篇文章。</div>
+    </div>
+    <div class="c6 card">
+      <div class="chead"><h3>受眾分群（點擊層）</h3><p><b id="clickHealthNote">—</b></p></div>
+      <div class="cbody">
+        <div class="grid">
+          <div class="c6"><div class="lbl">曾點擊過的不重複人數</div><div class="val mono" id="audEver" style="font-size:22px">—</div></div>
+          <div class="c6"><div class="lbl">近 3 期活躍</div><div class="val mono" id="audActive" style="font-size:22px;color:var(--c2)">—</div></div>
+          <div class="c6"><div class="lbl">沉睡</div><div class="val mono" id="audDormant" style="font-size:22px;color:var(--ink3)">—</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="c12 card">
+      <div class="chead"><h3>三群受眾</h3><p id="segNote">—</p></div>
+      <div class="cbody">
+        <div class="grid" id="segCards"></div>
+      </div>
+    </div>
+    <div class="c12 card">
+      <div class="chead"><h3>三群受眾　首次接觸檔次分佈</h3><p>每個人只算「第一次」出現的期別，看哪一期在幫忙開發新讀者</p></div>
+      <div class="cbody"><canvas id="chartSegTrend" height="90"></canvas></div>
+    </div>
+
+    <div class="c12 card">
+      <div class="chead"><h3>熱門文章 Top 20</h3><p>依 Clicks 排序，來自對照表比對</p></div>
+      <div class="cbody" style="padding:0">
+        <table class="t" id="articlesTable">
+          <thead><tr><th>文章標題</th><th>大分類</th><th>中分類</th><th class="n">Clicks</th><th class="n">People</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="c12 card">
+      <div class="chead"><h3>未歸類網址（對照表需要補的項目）</h3><p>People 加總前 15 名</p></div>
+      <div class="cbody" style="padding:0">
+        <table class="t" id="unmatchedTable">
+          <thead><tr><th>url_path</th><th class="n">People</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>資料來源：data/summary.json（由 GitHub Actions 每月從 Google Sheets 同步產生）</footer>
+
+<script>
+const NAVY = "#17527A", GOLD = "#C9963C", MUTE = "#8A97A8", GRID = "#E7ECF3";
+
+function pct(x, digits) { return (x * 100).toFixed(digits === undefined ? 2 : digits) + "%"; }
+function num(x) { return Number(x).toLocaleString("en-US"); }
+
+async function main() {
+  let summary;
+  try {
+    const res = await fetch("data/summary.json", { cache: "no-store" });
+    if (!res.ok) throw new Error("HTTP " + res.status);
+    summary = await res.json();
+  } catch (e) {
+    document.getElementById("statusLine").textContent =
+      "讀不到 data/summary.json（" + e.message + "）— 請先確認 GitHub Actions 已經成功跑過至少一次同步。";
+    document.getElementById("statusLine").classList.add("err");
+    return;
+  }
+
+  document.getElementById("statusLine").style.display = "none";
+  document.getElementById("app").style.display = "block";
+
+  const byPeriod = summary.by_period.slice().sort((a, b) => (a.date > b.date ? 1 : -1));
+  document.getElementById("topbarMeta").textContent =
+    byPeriod.length + " 期　" + byPeriod[0].date + " ～ " + byPeriod[byPeriod.length - 1].date;
+
+  // KPI cards
+  const totSent = byPeriod.reduce((s, r) => s + Number(r.sent), 0);
+  const totDelivered = byPeriod.reduce((s, r) => s + Number(r.delivered), 0);
+  const totOpened = byPeriod.reduce((s, r) => s + Number(r.opened), 0);
+  const totClicked = byPeriod.reduce((s, r) => s + Number(r.clicked_email), 0);
+  document.getElementById("kpiSent").textContent = num(totSent);
+  document.getElementById("kpiPeriods").textContent = byPeriod.length + " 期合計";
+  document.getElementById("kpiDelivered").textContent = pct(totDelivered / totSent, 1);
+  document.getElementById("kpiOpened").textContent = pct(totOpened / totDelivered, 1);
+  document.getElementById("kpiClicked").textContent = pct(totClicked / totDelivered, 3);
+
+  // trend chart
+  const labels = byPeriod.map(r => r.date + "\n" + r.report_type);
+  const openRate = byPeriod.map(r => +(r.opened / r.delivered * 100).toFixed(2));
+  const clickRate = byPeriod.map(r => +(r.clicked_email / r.delivered * 100).toFixed(3));
+  new Chart(document.getElementById("chartTrend"), {
+    type: "line",
+    data: {
+      labels: byPeriod.map(r => r.date),
+      datasets: [
+        { label: "開信率 %", data: openRate, borderColor: NAVY, backgroundColor: NAVY, tension: 0.25, yAxisID: "y" },
+        { label: "點擊率 %", data: clickRate, borderColor: GOLD, backgroundColor: GOLD, tension: 0.25, yAxisID: "y1" },
+      ],
+    },
+    options: {
+      responsive: true,
+      interaction: { mode: "index", intersect: false },
+      plugins: { legend: { position: "bottom", labels: { color: "#5B6B80" } } },
+      scales: {
+        x: { ticks: { color: MUTE, maxRotation: 60, minRotation: 60, font: { size: 9 } }, grid: { display: false } },
+        y: { position: "left", ticks: { color: MUTE }, grid: { color: GRID }, title: { display: true, text: "開信率 %", color: MUTE } },
+        y1: { position: "right", ticks: { color: MUTE }, grid: { display: false }, title: { display: true, text: "點擊率 %", color: MUTE } },
+      },
+    },
+  });
+
+  // compare table
+  const byType = {};
+  byPeriod.forEach(r => {
+    const t = byType[r.report_type] || (byType[r.report_type] = { sent: 0, delivered: 0, opened: 0, clicked: 0, unsub: 0, n: 0 });
+    t.sent += Number(r.sent); t.delivered += Number(r.delivered); t.opened += Number(r.opened);
+    t.clicked += Number(r.clicked_email); t.unsub += Number(r.unsubscribed); t.n += 1;
+  });
+  let cmpHtml = "<thead><tr><th></th>" + Object.keys(byType).map(k => `<th class="n">${k} (${byType[k].n}期)</th>`).join("") + "</tr></thead><tbody>";
+  const cmpRows = [
+    ["平均開信率", t => pct(t.opened / t.delivered, 2)],
+    ["平均點擊率", t => pct(t.clicked / t.delivered, 3)],
+    ["平均退訂率", t => pct(t.unsub / t.delivered, 3)],
+  ];
+  cmpRows.forEach(([label, fn]) => {
+    cmpHtml += `<tr><td>${label}</td>` + Object.keys(byType).map(k => `<td class="n">${fn(byType[k])}</td>`).join("") + "</tr>";
+  });
+  cmpHtml += "</tbody>";
+  document.getElementById("compareTable").innerHTML = cmpHtml;
+
+  // category chart
+  const cats = summary.category_totals.slice().sort((a, b) => b.clicks - a.clicks);
+  new Chart(document.getElementById("chartCategory"), {
+    type: "bar",
+    data: {
+      labels: cats.map(c => c.category),
+      datasets: [{ label: "Clicks", data: cats.map(c => c.clicks), backgroundColor: NAVY }],
+    },
+    options: {
+      indexAxis: "y",
+      plugins: { legend: { display: false } },
+      scales: {
+        x: { ticks: { color: MUTE }, grid: { color: GRID } },
+        y: { ticks: { color: MUTE, font: { size: 10 } }, grid: { display: false } },
+      },
+    },
+  });
+
+  // audience
+  const h = summary.click_list_health;
+  document.getElementById("audEver").textContent = num(h.unique_clickers_ever);
+  document.getElementById("audActive").textContent = num(h.active_in_last_3_periods);
+  document.getElementById("audDormant").textContent = num(h.dormant);
+  document.getElementById("clickHealthNote").textContent = h.note;
+
+  // 三群受眾
+  if (summary.audience_segments) {
+    const seg = summary.audience_segments;
+    document.getElementById("segNote").textContent = seg.note;
+    const segColors = { "核心重疊": "#D0342C", "準買家": GOLD, "高頻讀者": NAVY };
+    const segCards = document.getElementById("segCards");
+    Object.entries(seg.groups).forEach(([name, g]) => {
+      const div = document.createElement("div");
+      div.className = "c4";
+      div.innerHTML = `
+        <div class="lbl">${name}</div>
+        <div class="val mono" style="color:${segColors[name] || NAVY}">${num(g.count)}</div>
+        <div class="sub">${g.definition}</div>`;
+      segCards.appendChild(div);
+    });
+
+    const periods = summary.by_period.slice().sort((a, b) => (a.date > b.date ? 1 : -1)).map(r => r.date);
+    const segNames = Object.keys(seg.groups);
+    new Chart(document.getElementById("chartSegTrend"), {
+      type: "bar",
+      data: {
+        labels: periods,
+        datasets: segNames.map(name => ({
+          label: name,
+          data: periods.map(p => seg.groups[name].first_contact_by_period[p] || 0),
+          backgroundColor: segColors[name] || NAVY,
+        })),
+      },
+      options: {
+        plugins: { legend: { position: "bottom", labels: { color: "#5B6B80" } } },
+        scales: {
+          x: { stacked: true, ticks: { color: MUTE, maxRotation: 60, minRotation: 60, font: { size: 9 } }, grid: { display: false } },
+          y: { stacked: true, ticks: { color: MUTE }, grid: { color: GRID } },
+        },
+      },
+    });
+  }
+
+  // top articles
+  const tbody = document.querySelector("#articlesTable tbody");
+  summary.top_articles.slice(0, 20).forEach(a => {
+    const tr = document.createElement("tr");
+    tr.innerHTML = `<td>${a.article_title || ""}</td><td>${a["大分類"] || ""}</td><td>${a["中分類"] || ""}</td>
+      <td class="n">${num(a.clicks)}</td><td class="n">${num(a.people)}</td>`;
+    tbody.appendChild(tr);
+  });
+
+  // unmatched
+  const utbody = document.querySelector("#unmatchedTable tbody");
+  summary.unmatched_paths.slice(0, 15).forEach(u => {
+    const tr = document.createElement("tr");
+    tr.innerHTML = `<td>${u.url_path}</td><td class="n">${num(u.people)}</td>`;
+    utbody.appendChild(tr);
+  });
+}
+
+main();
+</script>
+</body>
+</html>
