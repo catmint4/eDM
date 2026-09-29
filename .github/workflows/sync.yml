@@ -1,0 +1,40 @@
+name: 同步電子報成效資料
+
+# 兩種觸發方式：
+# 1. 排程 — 每月 1 號 UTC 01:00（台北時間早上 9 點）自動跑一次
+# 2. 手動 — 在 GitHub 網頁的 Actions 分頁按 "Run workflow"，貼完 Google Sheet 資料後想馬上同步就用這個
+on:
+  schedule:
+    - cron: "0 1 1 * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Sync from Google Sheets
+        env:
+          SHEET_ID: ${{ vars.SHEET_ID }}
+        run: python scripts/sync_from_sheets.py
+
+      - name: Commit updated data
+        run: |
+          git config user.name "newsletter-bi-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/
+          git diff --cached --quiet || git commit -m "同步電子報成效資料 $(date -u +%Y-%m-%d)"
+          git push
